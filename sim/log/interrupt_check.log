@@ -1,0 +1,170 @@
+# vsim -coverage -l interrupt_check.log -c test_bench -voptargs="+cover=bcesft" -assertdebug -do "coverage save -onexit interrupt_check.ucdb; log -r /*;run -all" 
+# Start time: 18:04:42 on Apr 23,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 linux_x86_64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.test_bench(fast)
+# coverage save -onexit interrupt_check.ucdb
+#  log -r /*
+# run -all
+# 
+# =====================================================================
+# ============================INTERRUPT CHECK============================
+# =====================================================================
+# 
+# 	
+# ***************INTERRUPT PENDING****************
+# 	
+# ===============SET CONDITION================
+# -------------------------------------------------------------------
+# t=        100 [WRITE] : addr=00c wdata=000000ff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=        124 [WRITE] : addr=010 wdata=00000000 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=        148 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=       1720 [READ]  : addr=018 rdata=00000001
+# PASS. TISR.int_st = 1. Interrupt output is not asserted
+# 	
+# ===============CLEAR CONDITION================
+# -------------------------------------------------------------------
+# t=       1732 [WRITE] : addr=00c wdata=000000ff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       1756 [WRITE] : addr=010 wdata=00000000 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       1780 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=       3352 [READ]  : addr=018 rdata=00000001
+# TISR.int_st = 1
+# Write 0 to TISR.int_st
+# -------------------------------------------------------------------
+# t=       3352 [WRITE] : addr=018 wdata=00000000 pstrb=4'b1111
+# t=       3400 [READ]  : addr=018 rdata=00000001
+# PASS. TISR.int_st remains 1
+# Write 1 to TISR.int_st
+# -------------------------------------------------------------------
+# t=       3400 [WRITE] : addr=018 wdata=00000001 pstrb=4'b1111
+# t=       3448 [READ]  : addr=018 rdata=00000000
+# PASS. TISR.int_st is cleared to 0
+# 	
+# ===============MANUAL CONDITION================
+# -------------------------------------------------------------------
+# t=       3460 [WRITE] : addr=004 wdata=ffffffff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       3484 [WRITE] : addr=008 wdata=ffffffff pstrb=4'b1111
+# t=       3532 [READ]  : addr=018 rdata=00000001
+# PASS. TISR.int_st = 1. Interrupt output is not asserted
+# 	
+# ***************INTERRUPT ENABLE****************
+# 	
+# ===============SET CONDITION================
+# -------------------------------------------------------------------
+# t=       3544 [WRITE] : addr=00c wdata=000000ff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       3568 [WRITE] : addr=010 wdata=00000000 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       3592 [WRITE] : addr=014 wdata=00000001 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       3616 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=       5188 [READ]  : addr=018 rdata=00000001
+# PASS. TISR.int_st = 1. tim_int = 1. Interrupt output is asserted
+# 	
+# ===============CLEAR CONDITION================
+# -------------------------------------------------------------------
+# t=       5200 [WRITE] : addr=00c wdata=000000ff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       5224 [WRITE] : addr=010 wdata=00000000 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       5248 [WRITE] : addr=014 wdata=00000001 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       5272 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=       6844 [READ]  : addr=018 rdata=00000001
+# tim_int = 1
+# TISR.int_st = 1. tim_int = 1
+# Write 0 to TISR.int_st
+# -------------------------------------------------------------------
+# t=       6844 [WRITE] : addr=018 wdata=00000000 pstrb=4'b1111
+# t=       6892 [READ]  : addr=018 rdata=00000001
+# PASS. TISR.int_st remains 1
+# Write 1 to TISR.int_st
+# -------------------------------------------------------------------
+# t=       6892 [WRITE] : addr=018 wdata=00000001 pstrb=4'b1111
+# t=       6940 [READ]  : addr=018 rdata=00000000
+# PASS. TISR.int_st is cleared to 0
+# 	
+# ===============MANUAL CONDITION================
+# -------------------------------------------------------------------
+# t=       6952 [WRITE] : addr=004 wdata=ffffffff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       6976 [WRITE] : addr=008 wdata=ffffffff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       7000 [WRITE] : addr=014 wdata=00000001 pstrb=4'b1111
+# t=       7048 [READ]  : addr=018 rdata=00000001
+# PASS. TISR.int_st = 1. tim_int = 1. Interrupt output is asserted
+# 	
+# ===============MASK CONDITION================
+# -------------------------------------------------------------------
+# t=       7060 [WRITE] : addr=00c wdata=000000ff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       7084 [WRITE] : addr=010 wdata=00000000 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       7108 [WRITE] : addr=014 wdata=00000001 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       7132 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=       8704 [READ]  : addr=018 rdata=00000001
+# PASS. TISR.int_st = 1. tim_int = 1. Interrupt output is asserted
+# Set TIER.int_en = 0
+# -------------------------------------------------------------------
+# t=       8704 [WRITE] : addr=014 wdata=00000000 pstrb=4'b1111
+# Check interrupt output tim_int
+# tim_int = 0
+# t=       8752 [READ]  : addr=018 rdata=00000001
+# PASS. TISR.int_st = 1. tim_int = 0. Interrupt output is negated
+# 	
+# ===============ONCE ASSERTED, INTERRUPT MUST BE KEPT================
+# -------------------------------------------------------------------
+# t=       8764 [WRITE] : addr=00c wdata=000000ff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       8788 [WRITE] : addr=010 wdata=00000000 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       8812 [WRITE] : addr=014 wdata=00000001 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       8836 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=      10408 [READ]  : addr=018 rdata=00000001
+# TISR.int_st = 1. tim_int = 1. Interrupt output is asserted
+# Wait 256 cycle. Read TISR.int_st and tim_int again
+# t=      11956 [READ]  : addr=018 rdata=00000001
+# TISR.int_st = 1. tim_int = 1. Interrupt keeps HIGH, TISR.int_st keeps 1
+# -------------------------------------------------------------------
+# t=      11968 [WRITE] : addr=00c wdata=000000ff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=      11992 [WRITE] : addr=010 wdata=00000000 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=      12016 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=      13588 [READ]  : addr=018 rdata=00000001
+# TISR.int_st = 1
+# Write 0 to TISR.int_st
+# Write 1 to TISR.int_st
+# -------------------------------------------------------------------
+# t=      13588 [WRITE] : addr=018 wdata=00000001 pstrb=4'b0000
+# t=      13636 [READ]  : addr=018 rdata=00000001
+# 
+# =================================END=================================
+# 
+# Test_result PASSED
+# ** Note: $finish    : ../tb/test_bench.v(68)
+#    Time: 14636 ns  Iteration: 0  Instance: /test_bench
+# Saving coverage database on exit...
+# End time: 18:04:43 on Apr 23,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

@@ -1,0 +1,276 @@
+# vsim -coverage -l pstrb_check.log -c test_bench -voptargs="+cover=bcesft" -assertdebug -do "coverage save -onexit pstrb_check.ucdb; log -r /*;run -all" 
+# Start time: 18:04:35 on Apr 23,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 linux_x86_64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.test_bench(fast)
+# coverage save -onexit pstrb_check.ucdb
+#  log -r /*
+# run -all
+# 
+# =====================================================================
+# ===============================PSTRB CHECK===============================
+# =====================================================================
+# 
+# 
+# ***** TCR pstrb check *****
+# -------------------------------------------------------------------
+# t=        100 [WRITE] : addr=000 wdata=33333333 pstrb=4'b0010
+# t=        148 [READ]  : addr=000 rdata=00000300
+# t=        148 ==> PASS: addr=000 Exp=  00000300  Actual=00000300
+# -------------------------------------------------------------------
+# t=        148 [WRITE] : addr=000 wdata=33333333 pstrb=4'b0001
+# t=        196 [READ]  : addr=000 rdata=00000303
+# t=        196 ==> PASS: addr=000 Exp=  00000303  Actual=00000303
+# -------------------------------------------------------------------
+# t=        196 [WRITE] : addr=000 wdata=33333333 pstrb=4'b0100
+# t=        244 [READ]  : addr=000 rdata=00000303
+# t=        244 ==> PASS: addr=000 Exp=  00000303  Actual=00000303
+# -------------------------------------------------------------------
+# t=        244 [WRITE] : addr=000 wdata=33333333 pstrb=4'b1000
+# t=        292 [READ]  : addr=000 rdata=00000303
+# t=        292 ==> PASS: addr=000 Exp=  00000303  Actual=00000303
+# -------------------------------------------------------------------
+# t=        304 [WRITE] : addr=000 wdata=55555555 pstrb=4'b0011
+# t=        352 [READ]  : addr=000 rdata=00000501
+# t=        352 ==> PASS: addr=000 Exp=  00000501  Actual=00000501
+# -------------------------------------------------------------------
+# t=        352 [WRITE] : addr=000 wdata=77777777 pstrb=4'b1100
+# t=        400 [READ]  : addr=000 rdata=00000501
+# t=        400 ==> PASS: addr=000 Exp=  00000501  Actual=00000501
+# -------------------------------------------------------------------
+# t=        412 [WRITE] : addr=000 wdata=55555555 pstrb=4'b1111
+# t=        460 [READ]  : addr=000 rdata=00000501
+# t=        460 ==> PASS: addr=000 Exp=  00000501  Actual=00000501
+# 
+# ***** TDR0 pstrb check *****
+# -------------------------------------------------------------------
+# t=        472 [WRITE] : addr=004 wdata=1234abcd pstrb=4'b0001
+# t=        520 [READ]  : addr=004 rdata=000000cd
+# t=        520 ==> PASS: addr=004 Exp=  000000cd  Actual=000000cd
+# -------------------------------------------------------------------
+# t=        520 [WRITE] : addr=004 wdata=1234ab77 pstrb=4'b0010
+# t=        568 [READ]  : addr=004 rdata=0000abcd
+# t=        568 ==> PASS: addr=004 Exp=  0000abcd  Actual=0000abcd
+# -------------------------------------------------------------------
+# t=        568 [WRITE] : addr=004 wdata=1234abcd pstrb=4'b0100
+# t=        616 [READ]  : addr=004 rdata=0034abcd
+# t=        616 ==> PASS: addr=004 Exp=  0034abcd  Actual=0034abcd
+# -------------------------------------------------------------------
+# t=        616 [WRITE] : addr=004 wdata=12777777 pstrb=4'b1000
+# t=        664 [READ]  : addr=004 rdata=1234abcd
+# t=        664 ==> PASS: addr=004 Exp=  1234abcd  Actual=1234abcd
+# -------------------------------------------------------------------
+# t=        664 [WRITE] : addr=004 wdata=55555555 pstrb=4'b0011
+# t=        712 [READ]  : addr=004 rdata=12345555
+# t=        712 ==> PASS: addr=004 Exp=  12345555  Actual=12345555
+# -------------------------------------------------------------------
+# t=        712 [WRITE] : addr=004 wdata=55555555 pstrb=4'b1100
+# t=        760 [READ]  : addr=004 rdata=55555555
+# t=        760 ==> PASS: addr=004 Exp=  55555555  Actual=55555555
+# -------------------------------------------------------------------
+# t=        760 [WRITE] : addr=004 wdata=66666666 pstrb=4'b1111
+# t=        808 [READ]  : addr=004 rdata=66666666
+# t=        808 ==> PASS: addr=004 Exp=  66666666  Actual=66666666
+# 
+# ***** TDR1 pstrb check *****
+# -------------------------------------------------------------------
+# t=        820 [WRITE] : addr=008 wdata=1234abcd pstrb=4'b0001
+# t=        868 [READ]  : addr=008 rdata=000000cd
+# t=        868 ==> PASS: addr=008 Exp=  000000cd  Actual=000000cd
+# -------------------------------------------------------------------
+# t=        868 [WRITE] : addr=008 wdata=1234ab77 pstrb=4'b0010
+# t=        916 [READ]  : addr=008 rdata=0000abcd
+# t=        916 ==> PASS: addr=008 Exp=  0000abcd  Actual=0000abcd
+# -------------------------------------------------------------------
+# t=        916 [WRITE] : addr=008 wdata=1234abcd pstrb=4'b0100
+# t=        964 [READ]  : addr=008 rdata=0034abcd
+# t=        964 ==> PASS: addr=008 Exp=  0034abcd  Actual=0034abcd
+# -------------------------------------------------------------------
+# t=        964 [WRITE] : addr=008 wdata=12777777 pstrb=4'b1000
+# t=       1012 [READ]  : addr=008 rdata=1234abcd
+# t=       1012 ==> PASS: addr=008 Exp=  1234abcd  Actual=1234abcd
+# -------------------------------------------------------------------
+# t=       1012 [WRITE] : addr=008 wdata=55555555 pstrb=4'b0011
+# t=       1060 [READ]  : addr=008 rdata=12345555
+# t=       1060 ==> PASS: addr=008 Exp=  12345555  Actual=12345555
+# -------------------------------------------------------------------
+# t=       1060 [WRITE] : addr=008 wdata=55555555 pstrb=4'b1100
+# t=       1108 [READ]  : addr=008 rdata=55555555
+# t=       1108 ==> PASS: addr=008 Exp=  55555555  Actual=55555555
+# -------------------------------------------------------------------
+# t=       1108 [WRITE] : addr=008 wdata=66666666 pstrb=4'b1111
+# t=       1156 [READ]  : addr=008 rdata=66666666
+# t=       1156 ==> PASS: addr=008 Exp=  66666666  Actual=66666666
+# 
+# ***** TCMP0 pstrb check *****
+# -------------------------------------------------------------------
+# t=       1168 [WRITE] : addr=00c wdata=1234abcd pstrb=4'b0001
+# t=       1216 [READ]  : addr=00c rdata=ffffffcd
+# t=       1216 ==> PASS: addr=00c Exp=  ffffffcd  Actual=ffffffcd
+# -------------------------------------------------------------------
+# t=       1216 [WRITE] : addr=00c wdata=1234ab77 pstrb=4'b0010
+# t=       1264 [READ]  : addr=00c rdata=ffffabcd
+# t=       1264 ==> PASS: addr=00c Exp=  ffffabcd  Actual=ffffabcd
+# -------------------------------------------------------------------
+# t=       1264 [WRITE] : addr=00c wdata=1234abcd pstrb=4'b0100
+# t=       1312 [READ]  : addr=00c rdata=ff34abcd
+# t=       1312 ==> PASS: addr=00c Exp=  ff34abcd  Actual=ff34abcd
+# -------------------------------------------------------------------
+# t=       1312 [WRITE] : addr=00c wdata=12777777 pstrb=4'b1000
+# t=       1360 [READ]  : addr=00c rdata=1234abcd
+# t=       1360 ==> PASS: addr=00c Exp=  1234abcd  Actual=1234abcd
+# -------------------------------------------------------------------
+# t=       1360 [WRITE] : addr=00c wdata=55555555 pstrb=4'b0011
+# t=       1408 [READ]  : addr=00c rdata=12345555
+# t=       1408 ==> PASS: addr=00c Exp=  12345555  Actual=12345555
+# -------------------------------------------------------------------
+# t=       1408 [WRITE] : addr=00c wdata=55555555 pstrb=4'b1100
+# t=       1456 [READ]  : addr=00c rdata=55555555
+# t=       1456 ==> PASS: addr=00c Exp=  55555555  Actual=55555555
+# -------------------------------------------------------------------
+# t=       1456 [WRITE] : addr=00c wdata=66666666 pstrb=4'b1111
+# t=       1504 [READ]  : addr=00c rdata=66666666
+# t=       1504 ==> PASS: addr=00c Exp=  66666666  Actual=66666666
+# 
+# ***** TCMP1 pstrb check *****
+# -------------------------------------------------------------------
+# t=       1516 [WRITE] : addr=010 wdata=1234abcd pstrb=4'b0001
+# t=       1564 [READ]  : addr=010 rdata=ffffffcd
+# t=       1564 ==> PASS: addr=010 Exp=  ffffffcd  Actual=ffffffcd
+# -------------------------------------------------------------------
+# t=       1564 [WRITE] : addr=010 wdata=1234ab77 pstrb=4'b0010
+# t=       1612 [READ]  : addr=010 rdata=ffffabcd
+# t=       1612 ==> PASS: addr=010 Exp=  ffffabcd  Actual=ffffabcd
+# -------------------------------------------------------------------
+# t=       1612 [WRITE] : addr=010 wdata=1234abcd pstrb=4'b0100
+# t=       1660 [READ]  : addr=010 rdata=ff34abcd
+# t=       1660 ==> PASS: addr=010 Exp=  ff34abcd  Actual=ff34abcd
+# -------------------------------------------------------------------
+# t=       1660 [WRITE] : addr=010 wdata=12777777 pstrb=4'b1000
+# t=       1708 [READ]  : addr=010 rdata=1234abcd
+# t=       1708 ==> PASS: addr=010 Exp=  1234abcd  Actual=1234abcd
+# -------------------------------------------------------------------
+# t=       1708 [WRITE] : addr=010 wdata=55555555 pstrb=4'b0011
+# t=       1756 [READ]  : addr=010 rdata=12345555
+# t=       1756 ==> PASS: addr=010 Exp=  12345555  Actual=12345555
+# -------------------------------------------------------------------
+# t=       1756 [WRITE] : addr=010 wdata=55555555 pstrb=4'b1100
+# t=       1804 [READ]  : addr=010 rdata=55555555
+# t=       1804 ==> PASS: addr=010 Exp=  55555555  Actual=55555555
+# -------------------------------------------------------------------
+# t=       1804 [WRITE] : addr=010 wdata=66666666 pstrb=4'b1111
+# t=       1852 [READ]  : addr=010 rdata=66666666
+# t=       1852 ==> PASS: addr=010 Exp=  66666666  Actual=66666666
+# 
+# ***** TIER pstrb check *****
+# -------------------------------------------------------------------
+# t=       1864 [WRITE] : addr=014 wdata=1234abcd pstrb=4'b0001
+# t=       1912 [READ]  : addr=014 rdata=00000001
+# t=       1912 ==> PASS: addr=014 Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       1912 [WRITE] : addr=014 wdata=1234ab77 pstrb=4'b0010
+# t=       1960 [READ]  : addr=014 rdata=00000001
+# t=       1960 ==> PASS: addr=014 Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       1960 [WRITE] : addr=014 wdata=1234abcd pstrb=4'b0100
+# t=       2008 [READ]  : addr=014 rdata=00000001
+# t=       2008 ==> PASS: addr=014 Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       2008 [WRITE] : addr=014 wdata=12777777 pstrb=4'b1000
+# t=       2056 [READ]  : addr=014 rdata=00000001
+# t=       2056 ==> PASS: addr=014 Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       2068 [WRITE] : addr=014 wdata=55555555 pstrb=4'b0011
+# t=       2116 [READ]  : addr=014 rdata=00000001
+# t=       2116 ==> PASS: addr=014 Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       2116 [WRITE] : addr=014 wdata=55555555 pstrb=4'b1100
+# t=       2164 [READ]  : addr=014 rdata=00000001
+# t=       2164 ==> PASS: addr=014 Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       2176 [WRITE] : addr=014 wdata=66666666 pstrb=4'b1111
+# t=       2224 [READ]  : addr=014 rdata=00000000
+# t=       2224 ==> PASS: addr=014 Exp=  00000000  Actual=00000000
+# 
+# ***** TISR pstrb check *****
+# -------------------------------------------------------------------
+# t=       2236 [WRITE] : addr=018 wdata=1234abcd pstrb=4'b0001
+# t=       2284 [READ]  : addr=018 rdata=00000000
+# t=       2284 ==> PASS: addr=018 Exp=  00000000  Actual=00000000
+# -------------------------------------------------------------------
+# t=       2284 [WRITE] : addr=018 wdata=1234ab77 pstrb=4'b0010
+# t=       2332 [READ]  : addr=018 rdata=00000000
+# t=       2332 ==> PASS: addr=018 Exp=  00000000  Actual=00000000
+# -------------------------------------------------------------------
+# t=       2332 [WRITE] : addr=018 wdata=1234abcd pstrb=4'b0100
+# t=       2380 [READ]  : addr=018 rdata=00000000
+# t=       2380 ==> PASS: addr=018 Exp=  00000000  Actual=00000000
+# -------------------------------------------------------------------
+# t=       2380 [WRITE] : addr=018 wdata=12777777 pstrb=4'b1000
+# t=       2428 [READ]  : addr=018 rdata=00000000
+# t=       2428 ==> PASS: addr=018 Exp=  00000000  Actual=00000000
+# -------------------------------------------------------------------
+# t=       2440 [WRITE] : addr=018 wdata=55555555 pstrb=4'b0011
+# t=       2488 [READ]  : addr=018 rdata=00000000
+# t=       2488 ==> PASS: addr=018 Exp=  00000000  Actual=00000000
+# -------------------------------------------------------------------
+# t=       2488 [WRITE] : addr=018 wdata=55555555 pstrb=4'b1100
+# t=       2536 [READ]  : addr=018 rdata=00000000
+# t=       2536 ==> PASS: addr=018 Exp=  00000000  Actual=00000000
+# -------------------------------------------------------------------
+# t=       2548 [WRITE] : addr=018 wdata=66666666 pstrb=4'b1111
+# t=       2596 [READ]  : addr=018 rdata=00000000
+# t=       2596 ==> PASS: addr=018 Exp=  00000000  Actual=00000000
+# 
+# ***** THCSR pstrb check *****
+# -------------------------------------------------------------------
+# t=       2608 [WRITE] : addr=01c wdata=1234abcd pstrb=4'b0001
+# t=       2656 [READ]  : addr=01c rdata=00000001
+# t=       2656 ==> PASS: addr=01c Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       2656 [WRITE] : addr=01c wdata=1234ab77 pstrb=4'b0010
+# t=       2704 [READ]  : addr=01c rdata=00000001
+# t=       2704 ==> PASS: addr=01c Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       2704 [WRITE] : addr=01c wdata=1234abcd pstrb=4'b0100
+# t=       2752 [READ]  : addr=01c rdata=00000001
+# t=       2752 ==> PASS: addr=01c Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       2752 [WRITE] : addr=01c wdata=12777777 pstrb=4'b1000
+# t=       2800 [READ]  : addr=01c rdata=00000001
+# t=       2800 ==> PASS: addr=01c Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       2812 [WRITE] : addr=01c wdata=55555555 pstrb=4'b0011
+# t=       2860 [READ]  : addr=01c rdata=00000001
+# t=       2860 ==> PASS: addr=01c Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       2860 [WRITE] : addr=01c wdata=55555555 pstrb=4'b1100
+# t=       2908 [READ]  : addr=01c rdata=00000001
+# t=       2908 ==> PASS: addr=01c Exp=  00000001  Actual=00000001
+# -------------------------------------------------------------------
+# t=       2920 [WRITE] : addr=01c wdata=66666666 pstrb=4'b1111
+# t=       2968 [READ]  : addr=01c rdata=00000000
+# t=       2968 ==> PASS: addr=01c Exp=  00000000  Actual=00000000
+# 
+# =================================END=================================
+# 
+# Test_result PASSED
+# ** Note: $finish    : ../tb/test_bench.v(68)
+#    Time: 3980 ns  Iteration: 0  Instance: /test_bench
+# Saving coverage database on exit...
+# End time: 18:04:36 on Apr 23,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

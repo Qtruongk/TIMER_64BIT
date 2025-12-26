@@ -1,0 +1,44 @@
+# vsim -coverage -l reserved_reg.log -c test_bench -voptargs="+cover=bcesft" -assertdebug -do "coverage save -onexit reserved_reg.ucdb; log -r /*;run -all" 
+# Start time: 18:04:22 on Apr 23,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 linux_x86_64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.test_bench(fast)
+# coverage save -onexit reserved_reg.ucdb
+#  log -r /*
+# run -all
+# 
+# =====================================================================
+# ===========================RESERVED REGISTER===========================
+# =====================================================================
+# 
+# -------------------------------------------------------------------
+# t=        100 [WRITE] : addr=ffc wdata=ffffffff pstrb=4'b1111
+# t=        148 [READ]  : addr=ffc rdata=00000000
+# t=        148 ==> PASS: addr=ffc Exp=  00000000  Actual=00000000
+# -------------------------------------------------------------------
+# t=        148 [WRITE] : addr=020 wdata=ffffffff pstrb=4'b1111
+# t=        196 [READ]  : addr=020 rdata=00000000
+# t=        196 ==> PASS: addr=020 Exp=  00000000  Actual=00000000
+# 
+# =================================END=================================
+# 
+# Test_result PASSED
+# ** Note: $finish    : ../tb/test_bench.v(68)
+#    Time: 1196 ns  Iteration: 0  Instance: /test_bench
+# Saving coverage database on exit...
+# End time: 18:04:23 on Apr 23,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

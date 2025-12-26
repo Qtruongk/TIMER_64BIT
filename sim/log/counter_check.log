@@ -1,0 +1,134 @@
+# vsim -coverage -l counter_check.log -c test_bench -voptargs="+cover=bcesft" -assertdebug -do "coverage save -onexit counter_check.ucdb; log -r /*;run -all" 
+# Start time: 18:04:37 on Apr 23,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 linux_x86_64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.test_bench(fast)
+# coverage save -onexit counter_check.ucdb
+#  log -r /*
+# run -all
+# 
+# =====================================================================
+# =============================COUNTER CHECK=============================
+# =====================================================================
+# 
+# 	
+# ================COUNTING BEHAVIOR CHECK================
+# 
+# 
+# ***** Check counting at boundary of TDR0 *****
+# -------------------------------------------------------------------
+# t=        100 [WRITE] : addr=004 wdata=ffffff00 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=        124 [WRITE] : addr=008 wdata=00000000 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=        148 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=       1708 [READ]  : addr=004 rdata=00000000
+# t=       1708 ==> PASS: addr=004 Exp=  00000000  Actual=00000000
+# t=       1732 [READ]  : addr=008 rdata=00000001
+# t=       1732 ==> PASS: addr=008 Exp=  00000001  Actual=00000001
+# 
+# ***** Check counting at boundary of TDR1 *****
+# -------------------------------------------------------------------
+# t=       1744 [WRITE] : addr=004 wdata=ffffff00 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       1768 [WRITE] : addr=008 wdata=ffffffff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       1792 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=       3352 [READ]  : addr=004 rdata=00000000
+# t=       3352 ==> PASS: addr=004 Exp=  00000000  Actual=00000000
+# t=       3376 [READ]  : addr=008 rdata=00000000
+# t=       3376 ==> PASS: addr=008 Exp=  00000000  Actual=00000000
+# 	
+# ================UPDATE TDR0/1 WHEN TIMER IS WORKING================
+# 
+# -------------------------------------------------------------------
+# t=       3388 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=       4948 [READ]  : addr=004 rdata=00000100
+# t=       4948 ==> PASS: addr=004 Exp=  00000100  Actual=00000100
+# t=       4972 [READ]  : addr=008 rdata=00000000
+# t=       4972 ==> PASS: addr=008 Exp=  00000000  Actual=00000000
+# -------------------------------------------------------------------
+# t=       4972 [WRITE] : addr=004 wdata=ffffff00 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       4996 [WRITE] : addr=008 wdata=00000000 pstrb=4'b1111
+# t=       6550 [READ]  : addr=004 rdata=00000000
+# t=       6550 ==> PASS: addr=004 Exp=  00000000  Actual=00000000
+# t=       6574 [READ]  : addr=008 rdata=00000001
+# t=       6574 ==> PASS: addr=008 Exp=  00000001  Actual=00000001
+# 	
+# ================TIMER IS DISABLED AND RESUMED================
+# 
+# 
+# ***** When timer changed from 1 to 0, counter does not count *****
+# -------------------------------------------------------------------
+# t=       6586 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=       8146 [READ]  : addr=004 rdata=00000100
+# t=       8170 [READ]  : addr=008 rdata=00000000
+# timer_en is deasserted
+# -------------------------------------------------------------------
+# t=       8170 [WRITE] : addr=000 wdata=00000000 pstrb=4'b1111
+# t=       8218 [READ]  : addr=004 rdata=00000000
+# t=       8218 ==> PASS: addr=004 Exp=  00000000  Actual=00000000
+# t=       8242 [READ]  : addr=008 rdata=00000000
+# t=       8242 ==> PASS: addr=008 Exp=  00000000  Actual=00000000
+# 
+# ***** After timer_en changed from 0 to 1, div_en=1, div_val=3, counter works normally*****
+# timer_en is asserted
+# -------------------------------------------------------------------
+# t=       8242 [WRITE] : addr=000 wdata=00000303 pstrb=4'b1111
+# t=       9802 [READ]  : addr=004 rdata=00000020
+# t=       9826 [READ]  : addr=008 rdata=00000000
+# 	
+# ================COUNTER CONTINUE COUNTING================
+# 
+# 
+# ***** When interrupt occurs *****
+# -------------------------------------------------------------------
+# t=       9838 [WRITE] : addr=00c wdata=000000ff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       9862 [WRITE] : addr=010 wdata=00000000 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       9886 [WRITE] : addr=014 wdata=00000001 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       9910 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# Interrupt
+# Read again
+# t=      11488 [READ]  : addr=004 rdata=00000103
+# t=      11512 [READ]  : addr=008 rdata=00000000
+# 
+# ***** When overflow*****
+# -------------------------------------------------------------------
+# t=      11524 [WRITE] : addr=004 wdata=ffffff00 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=      11548 [WRITE] : addr=008 wdata=ffffffff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=      11572 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# Overflow
+# t=      13132 [READ]  : addr=004 rdata=00000000
+# t=      13156 [READ]  : addr=008 rdata=00000000
+# Read again
+# t=      13180 [READ]  : addr=004 rdata=00000008
+# t=      13204 [READ]  : addr=008 rdata=00000000
+# 
+# =================================END=================================
+# 
+# Test_result PASSED
+# ** Note: $finish    : ../tb/test_bench.v(68)
+#    Time: 14204 ns  Iteration: 0  Instance: /test_bench
+# Saving coverage database on exit...
+# End time: 18:04:37 on Apr 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

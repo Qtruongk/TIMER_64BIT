@@ -1,0 +1,61 @@
+# vsim -coverage -l timer_reset_check.log -c test_bench -voptargs="+cover=bcesft" -assertdebug -do "coverage save -onexit timer_reset_check.ucdb; log -r /*;run -all" 
+# Start time: 18:04:44 on Apr 23,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 linux_x86_64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.test_bench(fast)
+# coverage save -onexit timer_reset_check.ucdb
+#  log -r /*
+# run -all
+# 
+# =====================================================================
+# ============================TIMER RESET CHECK============================
+# =====================================================================
+# 
+# -------------------------------------------------------------------
+# t=        100 [WRITE] : addr=00c wdata=000000ff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=        124 [WRITE] : addr=010 wdata=00000000 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=        148 [WRITE] : addr=014 wdata=00000001 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=        172 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=       1744 [READ]  : addr=018 rdata=00000001
+# PASS. TISR.int_st = 1. tim_int = 1. Interrupt output is asserted
+# Assert RESET
+# When RESET occurs, interrupt is cleared
+# t=       1780 [READ]  : addr=018 rdata=00000000
+# PASS. TISR.int_st = 0. tim_int = 0
+# Check interrupt can be asserted normally after reset. Set interrupt again
+# -------------------------------------------------------------------
+# t=       1780 [WRITE] : addr=00c wdata=000000ff pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       1804 [WRITE] : addr=010 wdata=00000000 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       1828 [WRITE] : addr=014 wdata=00000001 pstrb=4'b1111
+# -------------------------------------------------------------------
+# t=       1852 [WRITE] : addr=000 wdata=00000001 pstrb=4'b1111
+# t=       3424 [READ]  : addr=018 rdata=00000001
+# PASS. TISR.int_st = 1. tim_int = 1. Interrupt output is asserted again after RESET
+# 
+# =================================END=================================
+# 
+# Test_result PASSED
+# ** Note: $finish    : ../tb/test_bench.v(68)
+#    Time: 4424 ns  Iteration: 0  Instance: /test_bench
+# Saving coverage database on exit...
+# End time: 18:04:44 on Apr 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

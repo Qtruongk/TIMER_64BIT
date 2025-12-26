@@ -1,0 +1,76 @@
+# vsim -coverage -l apb_check.log -c test_bench -voptargs="+cover=bcesft" -assertdebug -do "coverage save -onexit apb_check.ucdb; log -r /*;run -all" 
+# Start time: 18:04:40 on Apr 23,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 linux_x86_64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.test_bench(fast)
+# coverage save -onexit apb_check.ucdb
+#  log -r /*
+# run -all
+# 
+# =====================================================================
+# ===============================APB CHECK===============================
+# =====================================================================
+# 
+# 	
+# ================NORMAL APB================
+# -------------------------------------------------------------------
+# t=        100 [WRITE] : addr=004 wdata=55555555 pstrb=4'b1111
+# t=        148 [READ]  : addr=004 rdata=55555555
+# t=        148 ==> PASS: addr=004 Exp=  55555555  Actual=55555555
+# 	
+# ================WRONG APB================
+# ==================WRITE==================
+# 
+# ***** psel is not assert, only penable => error write*****
+# -------------------------------------------------------------------
+# t=        160 [WRITE] : addr=004 wdata=12345678 pstrb=4'b1111
+# t=        262 [READ]  : addr=004 rdata=00000000
+# t=        262 ==> PASS: addr=004 Exp=  00000000  Actual=00000000
+# 
+# ***** penable is not assert, only psel => error write *****
+# -------------------------------------------------------------------
+# t=        274 [WRITE] : addr=004 wdata=12345678 pstrb=4'b1111
+# t=        376 [READ]  : addr=004 rdata=00000000
+# t=        376 ==> PASS: addr=004 Exp=  00000000  Actual=00000000
+# ==================READ==================
+# 
+# ***** psel is not assert, only penable => error read*****
+# t=        466 [READ]  : addr=004 rdata=00000000
+# t=        490 [READ]  : addr=004 rdata=00000000
+# t=        490 ==> PASS: addr=004 Exp=  00000000  Actual=00000000
+# 
+# ***** penable is not assert, only psel => error read *****
+# t=        580 [READ]  : addr=004 rdata=00000000
+# t=        604 [READ]  : addr=004 rdata=00000000
+# t=        604 ==> PASS: addr=004 Exp=  00000000  Actual=00000000
+# 	
+# ================MULTIPLE ACCESS================
+# 
+# ***** WW-RR *****
+# t=        712 [READ]  : addr=004 rdata=55555555
+# t=        712 ==> PASS: addr=004 Exp=  55555555  Actual=55555555
+# t=        754 [READ]  : addr=008 rdata=66666666
+# t=        754 ==> PASS: addr=008 Exp=  66666666  Actual=66666666
+# 
+# =================================END=================================
+# 
+# Test_result PASSED
+# ** Note: $finish    : ../tb/test_bench.v(68)
+#    Time: 1760 ns  Iteration: 0  Instance: /test_bench
+# Saving coverage database on exit...
+# End time: 18:04:41 on Apr 23,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

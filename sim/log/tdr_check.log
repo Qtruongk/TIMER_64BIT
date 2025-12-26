@@ -1,0 +1,80 @@
+# vsim -coverage -l tdr_check.log -c test_bench -voptargs="+cover=bcesft" -assertdebug -do "coverage save -onexit tdr_check.ucdb; log -r /*;run -all" 
+# Start time: 18:04:25 on Apr 23,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 linux_x86_64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.test_bench(fast)
+# coverage save -onexit tdr_check.ucdb
+#  log -r /*
+# run -all
+# 
+# =====================================================================
+# ===============================TDR CHECK===============================
+# =====================================================================
+# 
+# 
+# ******************** TDR0 ********************
+# ***** Reset value check *****
+# t=        124 [READ]  : addr=004 rdata=00000000
+# t=        124 ==> PASS: addr=004 Exp=  00000000  Actual=00000000
+# ***** R/W access *****
+# -------------------------------------------------------------------
+# t=        124 [WRITE] : addr=004 wdata=00000000 pstrb=4'b1111
+# t=        172 [READ]  : addr=004 rdata=00000000
+# t=        172 ==> PASS: addr=004 Exp=  00000000  Actual=00000000
+# -------------------------------------------------------------------
+# t=        172 [WRITE] : addr=004 wdata=ffffffff pstrb=4'b1111
+# t=        220 [READ]  : addr=004 rdata=ffffffff
+# t=        220 ==> PASS: addr=004 Exp=  ffffffff  Actual=ffffffff
+# -------------------------------------------------------------------
+# t=        220 [WRITE] : addr=004 wdata=55555555 pstrb=4'b1111
+# t=        268 [READ]  : addr=004 rdata=55555555
+# t=        268 ==> PASS: addr=004 Exp=  55555555  Actual=55555555
+# -------------------------------------------------------------------
+# t=        268 [WRITE] : addr=004 wdata=54454554 pstrb=4'b1111
+# t=        316 [READ]  : addr=004 rdata=54454554
+# t=        316 ==> PASS: addr=004 Exp=  54454554  Actual=54454554
+# 
+# ******************** TDR1 ********************
+# ***** Reset value check *****
+# t=        340 [READ]  : addr=008 rdata=00000000
+# t=        340 ==> PASS: addr=008 Exp=  00000000  Actual=00000000
+# ***** R/W access *****
+# -------------------------------------------------------------------
+# t=        340 [WRITE] : addr=008 wdata=00000000 pstrb=4'b1111
+# t=        388 [READ]  : addr=008 rdata=00000000
+# t=        388 ==> PASS: addr=008 Exp=  00000000  Actual=00000000
+# -------------------------------------------------------------------
+# t=        388 [WRITE] : addr=008 wdata=ffffffff pstrb=4'b1111
+# t=        436 [READ]  : addr=008 rdata=ffffffff
+# t=        436 ==> PASS: addr=008 Exp=  ffffffff  Actual=ffffffff
+# -------------------------------------------------------------------
+# t=        436 [WRITE] : addr=008 wdata=55555555 pstrb=4'b1111
+# t=        484 [READ]  : addr=008 rdata=55555555
+# t=        484 ==> PASS: addr=008 Exp=  55555555  Actual=55555555
+# -------------------------------------------------------------------
+# t=        484 [WRITE] : addr=008 wdata=54454554 pstrb=4'b1111
+# t=        532 [READ]  : addr=008 rdata=54454554
+# t=        532 ==> PASS: addr=008 Exp=  54454554  Actual=54454554
+# 
+# =================================END=================================
+# 
+# Test_result PASSED
+# ** Note: $finish    : ../tb/test_bench.v(68)
+#    Time: 1532 ns  Iteration: 0  Instance: /test_bench
+# Saving coverage database on exit...
+# End time: 18:04:26 on Apr 23,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

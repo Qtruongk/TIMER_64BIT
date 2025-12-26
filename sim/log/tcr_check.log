@@ -1,0 +1,111 @@
+# vsim -coverage -l tcr_check.log -c test_bench -voptargs="+cover=bcesft" -assertdebug -do "coverage save -onexit tcr_check.ucdb; log -r /*;run -all" 
+# Start time: 18:04:24 on Apr 23,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 linux_x86_64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.test_bench(fast)
+# coverage save -onexit tcr_check.ucdb
+#  log -r /*
+# run -all
+# 
+# =====================================================================
+# ===============================TCR CHECK===============================
+# =====================================================================
+# 
+# ***** Reset value check *****
+# t=        124 [READ]  : addr=000 rdata=00000100
+# t=        124 ==> PASS: addr=000 Exp=  00000100  Actual=00000100
+# ***** R/W access *****
+# -------------------------------------------------------------------
+# t=        124 [WRITE] : addr=000 wdata=00000000 pstrb=4'b1111
+# t=        172 [READ]  : addr=000 rdata=00000000
+# t=        172 ==> PASS: addr=000 Exp=  00000000  Actual=00000000
+# -------------------------------------------------------------------
+# t=        172 [WRITE] : addr=000 wdata=fffff6f0 pstrb=4'b1111
+# t=        220 [READ]  : addr=000 rdata=00000600
+# t=        220 ==> PASS: addr=000 Exp=  00000600  Actual=00000600
+# -------------------------------------------------------------------
+# t=        220 [WRITE] : addr=000 wdata=55555555 pstrb=4'b1111
+# t=        268 [READ]  : addr=000 rdata=00000501
+# t=        268 ==> PASS: addr=000 Exp=  00000501  Actual=00000501
+# -------------------------------------------------------------------
+# t=        268 [WRITE] : addr=000 wdata=54454554 pstrb=4'b1111
+# t=        316 [READ]  : addr=000 rdata=00000500
+# t=        316 ==> PASS: addr=000 Exp=  00000500  Actual=00000500
+# ***** Reserved bit access *****
+# -------------------------------------------------------------------
+# t=        316 [WRITE] : addr=000 wdata=fffff6ff pstrb=4'b1111
+# t=        364 [READ]  : addr=000 rdata=00000603
+# t=        364 ==> PASS: addr=000 Exp=  00000603  Actual=00000603
+# ***** Write a prohibited value to div_val *****
+# -------------------------------------------------------------------
+# t=        376 [WRITE] : addr=000 wdata=55555955 pstrb=4'b1111
+# t=        424 [READ]  : addr=000 rdata=00000100
+# t=        424 ==> PASS: addr=000 Exp=  00000100  Actual=00000100
+# -------------------------------------------------------------------
+# t=        424 [WRITE] : addr=000 wdata=55555a55 pstrb=4'b1111
+# t=        472 [READ]  : addr=000 rdata=00000100
+# t=        472 ==> PASS: addr=000 Exp=  00000100  Actual=00000100
+# -------------------------------------------------------------------
+# t=        472 [WRITE] : addr=000 wdata=55555655 pstrb=4'b1111
+# t=        520 [READ]  : addr=000 rdata=00000601
+# t=        520 ==> PASS: addr=000 Exp=  00000601  Actual=00000601
+# -------------------------------------------------------------------
+# t=        520 [WRITE] : addr=000 wdata=55555255 pstrb=4'b1101
+# t=        568 [READ]  : addr=000 rdata=00000601
+# t=        568 ==> PASS: addr=000 Exp=  00000601  Actual=00000601
+# -------------------------------------------------------------------
+# t=        568 [WRITE] : addr=000 wdata=55555855 pstrb=4'b0000
+# t=        616 [READ]  : addr=000 rdata=00000601
+# t=        616 ==> PASS: addr=000 Exp=  00000601  Actual=00000601
+# -------------------------------------------------------------------
+# t=        616 [WRITE] : addr=000 wdata=55555355 pstrb=4'b0000
+# t=        664 [READ]  : addr=000 rdata=00000601
+# t=        664 ==> PASS: addr=000 Exp=  00000601  Actual=00000601
+# -------------------------------------------------------------------
+# t=        664 [WRITE] : addr=000 wdata=55555650 pstrb=4'b1111
+# t=        712 [READ]  : addr=000 rdata=00000600
+# t=        712 ==> PASS: addr=000 Exp=  00000600  Actual=00000600
+# -------------------------------------------------------------------
+# t=        712 [WRITE] : addr=000 wdata=55555e50 pstrb=4'b1111
+# t=        760 [READ]  : addr=000 rdata=00000600
+# t=        760 ==> PASS: addr=000 Exp=  00000600  Actual=00000600
+# ***** div_val, div_en is prohibited to change when timer_en is High *****
+# -------------------------------------------------------------------
+# t=        772 [WRITE] : addr=000 wdata=55555553 pstrb=4'b1111
+# t=        820 [READ]  : addr=000 rdata=00000503
+# t=        820 ==> PASS: addr=000 Exp=  00000503  Actual=00000503
+# -------------------------------------------------------------------
+# t=        820 [WRITE] : addr=000 wdata=55555653 pstrb=4'b1111
+# t=        868 [READ]  : addr=000 rdata=00000503
+# t=        868 ==> PASS: addr=000 Exp=  00000503  Actual=00000503
+# -------------------------------------------------------------------
+# t=        868 [WRITE] : addr=000 wdata=55555a51 pstrb=4'b1111
+# t=        916 [READ]  : addr=000 rdata=00000503
+# t=        916 ==> PASS: addr=000 Exp=  00000503  Actual=00000503
+# -------------------------------------------------------------------
+# t=        916 [WRITE] : addr=000 wdata=55555251 pstrb=4'b1111
+# t=        964 [READ]  : addr=000 rdata=00000503
+# t=        964 ==> PASS: addr=000 Exp=  00000503  Actual=00000503
+# 
+# =================================END=================================
+# 
+# Test_result PASSED
+# ** Note: $finish    : ../tb/test_bench.v(68)
+#    Time: 1964 ns  Iteration: 0  Instance: /test_bench
+# Saving coverage database on exit...
+# End time: 18:04:25 on Apr 23,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

@@ -1,0 +1,16 @@
+onehot
+reserved_reg
+tcr_check
+tdr_check
+tcmp_check
+tier_check
+tisr_check
+thcsr_check
+timer_en_fallingedge
+pstrb_check
+counter_check
+counter_control_check
+apb_check
+interrupt_check
+timer_reset_check
+halt_check

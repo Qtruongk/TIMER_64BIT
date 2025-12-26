@@ -85,6 +85,7 @@ The timer frequency is derived from `sys_clk` divided by a factor determined by 
 ├── testcases
 └── README.md
 ```
-## 8. Contact
+## Contact
+For any inquiries or feedback regarding this IP, please contact:
 - **Facebook:** https://www.facebook.com/qtrwuongnee
 - **Email:** [tranquangkaito@gmail.com](mailto:tranquangkaito@gmail.com)
